@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>راهنمای سفر | مکان مناسب برای سفرت را پیدا کن</title>
+<meta name="description" content="راهنمای سفر برای پیدا کردن سریع مکان‌های دیدنی بر اساس دسته‌بندی یا شرایط سفر." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F6EFE2;
+    --surface:#FFFDF8;
+    --surface-2:#EFE6D2;
+    --ink:#211F19;
+    --muted:#7A6F5C;
+    --line:#E3D8C0;
+    --primary:#0F6E6A;
+    --primary-dark:#0A4F4C;
+    --primary-tint:#DCEEEC;
+    --gold:#D9A441;
+    --gold-tint:#F6E9CE;
+    --brick:#A63D2F;
+    --radius-lg:22px;
+    --radius-md:16px;
+    --shadow-card:0 10px 30px -14px rgba(33,31,25,.28);
+    --shadow-soft:0 4px 16px -8px rgba(33,31,25,.2);
+    --max-w:1120px;
+    --header-h:64px;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Vazirmatn', sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; background:none; border:none; cursor:pointer;}
+  ul{margin:0; padding:0; list-style:none;}
+  fieldset{border:none; margin:0; padding:0;}
+  legend{padding:0;}
+  input{accent-color:var(--primary); font-family:inherit;}
+  ::selection{background:var(--gold-tint); color:var(--primary-dark);}
+  :focus-visible{outline:3px solid var(--gold); outline-offset:2px; border-radius:6px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important;} }
+
+  /* ---------------- Header / Nav ---------------- */
+  .topbar{
+    position:sticky; top:0; z-index:50; height:var(--header-h);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 18px;
+    background:rgba(246,239,226,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:center; gap:8px; font-weight:800; font-size:17px;}
+  .brand-mark{
+    width:32px; height:32px; border-radius:9px; flex:none;
+    background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display:flex; align-items:center; justify-content:center; color:var(--gold-tint);
+  }
+  .brand-mark svg{width:18px; height:18px;}
+  .nav-desktop{display:none; align-items:center; gap:28px;}
+  .nav-desktop a{font-size:14px; font-weight:700; color:var(--ink); padding:8px 4px; position:relative;}
+  .nav-desktop a:hover{color:var(--primary-dark);}
+  .nav-desktop a.cta{
+    background:var(--primary); color:#fff; padding:9px 18px; border-radius:999px;
+  }
+  .menu-toggle{
+    display:flex; width:38px; height:38px; align-items:center; justify-content:center;
+    border-radius:10px; color:var(--ink);
+  }
+  .menu-toggle svg{width:22px; height:22px;}
+  .mobile-nav{
+    max-height:0; overflow:hidden; background:var(--surface);
+    border-bottom:1px solid var(--line);
+    transition:max-height .25s ease;
+  }
+  .mobile-nav.open{max-height:260px;}
+  .mobile-nav ul{padding:8px 14px 14px; display:grid; gap:4px;}
+  .mobile-nav a{
+    display:block; padding:12px 10px; border-radius:10px; font-weight:700; font-size:15px;
+  }
+  .mobile-nav a:hover{background:var(--surface-2);}
+  @media(min-width:840px){
+    .nav-desktop{display:flex;}
+    .menu-toggle, .mobile-nav{display:none;}
+  }
+
+  /* ---------------- Layout ---------------- */
+  #app{max-width:var(--max-w); margin:0 auto; padding:0 16px 20px;}
+  .section{padding:30px 0 6px;}
+  .section-title{font-size:20px; font-weight:800; margin:0 0 16px;}
+  .link{font-size:13px; font-weight:700; color:var(--primary-dark); white-space:nowrap;}
+
+  /* ---------------- Hero ---------------- */
+  .hero{
+    position:relative; margin:0 -16px; height:min(72vh, 560px); min-height:400px;
+    display:flex; align-items:flex-end; overflow:hidden;
+  }
+  .hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(10,40,38,.35) 0%, rgba(8,25,23,.75) 85%);
+  }
+  .hero-content{position:relative; z-index:1; padding:0 22px 40px; color:#fff; width:100%; max-width:640px;}
+  .hero-content h1{font-size:clamp(26px, 5.5vw, 40px); font-weight:900; line-height:1.35; margin:0 0 12px;}
+  .hero-content p{font-size:15px; opacity:.92; margin:0 0 22px; max-width:480px;}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:10px;}
+
+  /* ---------------- Buttons ---------------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-weight:700; font-size:14.5px; cursor:pointer;
+    border:none; border-radius:999px; padding:13px 22px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn svg{width:18px; height:18px; flex:none;}
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--primary); color:#fff; box-shadow:var(--shadow-soft);}
+  .btn-primary:hover{background:var(--primary-dark);}
+  .btn-outline{background:var(--surface); color:var(--primary-dark); border:1.5px solid var(--line);}
+  .btn-outline:hover{border-color:var(--primary);}
+  .btn-outline-light{background:rgba(255,255,255,.12); color:#fff; border:1.5px solid rgba(255,255,255,.6); backdrop-filter:blur(4px);}
+  .btn-outline-light:hover{background:rgba(255,255,255,.2);}
+  .btn-lg{padding:15px 24px; font-size:15.5px;}
+  .btn-sm{padding:9px 16px; font-size:13px; width:100%;}
+  .btn-block{width:100%;}
+
+  /* ---------------- Category cards (image-based) ---------------- */
+  .cat-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(min-width:620px){ .cat-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(min-width:960px){ .cat-grid{grid-template-columns:repeat(5,1fr);} }
+  .cat-card{
+    display:block; border-radius:var(--radius-lg); overflow:hidden;
+    background:var(--surface); box-shadow:var(--shadow-card); border:1px solid var(--line);
+    transition:transform .18s ease;
+  }
+  .cat-card:hover{transform:translateY(-3px);}
+  .cat-card-media{position:relative; aspect-ratio:4/3; background:var(--surface-2);}
+  .cat-card-media img{width:100%; height:100%; object-fit:cover;}
+  .cat-card-icon{
+    position:absolute; bottom:8px; inset-inline-start:8px;
+    width:34px; height:34px; border-radius:10px;
+    background:rgba(255,253,248,.92); color:var(--primary-dark);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cat-card-icon svg{width:18px; height:18px;}
+  .cat-card-body{padding:12px 14px 14px;}
+  .cat-card-body h3{margin:0 0 4px; font-size:15px; font-weight:800;}
+
+  /* ---------------- Place cards / grid ---------------- */
+  .grid{display:grid; grid-template-columns:1fr; gap:16px;}
+  @media(min-width:620px){ .grid{grid-template-columns:1fr 1fr;} }
+  @media(min-width:960px){ .grid{grid-template-columns:1fr 1fr 1fr;} }
+
+  .card{
+    display:block; background:var(--surface); border-radius:var(--radius-lg);
+    overflow:hidden; box-shadow:var(--shadow-card); border:1px solid var(--line);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:0 16px 34px -14px rgba(33,31,25,.32);}
+  .card-media{position:relative; aspect-ratio:4/3; background:var(--surface-2); overflow:hidden;}
+  .card-media img{width:100%; height:100%; object-fit:cover;}
+  .card-tag{
+    position:absolute; top:10px; inset-inline-start:10px;
+    display:flex; align-items:center; gap:5px;
+    background:rgba(255,253,248,.92); color:var(--primary-dark);
+    font-size:11.5px; font-weight:700; padding:6px 10px; border-radius:999px;
+  }
+  .card-tag svg{width:13px; height:13px;}
+  .card-body{padding:14px 16px 16px;}
+  .card-body h3{margin:0 0 6px; font-size:16px; font-weight:800;}
+  .card-body p{margin:0 0 14px; font-size:13.5px; color:var(--muted);}
+  .card-body p.reason{color:var(--primary-dark); font-weight:600;}
+
+  .inline-empty{
+    grid-column:1/-1; text-align:center; padding:40px 16px; color:var(--muted); font-size:14px;
+    background:var(--surface); border:1px dashed var(--line); border-radius:var(--radius-md);
+  }
+
+  /* ---------------- Search box ---------------- */
+  .search-box{
+    display:flex; align-items:center; gap:10px;
+    background:var(--surface); border:1.5px solid var(--line); border-radius:999px;
+    padding:12px 16px; margin-bottom:20px;
+  }
+  .search-box svg{width:18px; height:18px; color:var(--muted); flex:none;}
+  .search-box input{
+    border:none; outline:none; background:transparent; width:100%; font-size:14.5px; color:var(--ink);
+  }
+
+  /* ---------------- Page head ---------------- */
+  .page-head{display:flex; align-items:flex-start; gap:12px; padding:20px 0 4px;}
+  .page-head h1{margin:2px 0 4px; font-size:22px; font-weight:900; color:var(--primary-dark);}
+  .page-head p{margin:0; color:var(--muted); font-size:13.5px;}
+  .back-btn{
+    flex:none; width:38px; height:38px; border-radius:12px;
+    background:var(--surface); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; color:var(--ink);
+    box-shadow:var(--shadow-soft);
+  }
+  .back-btn svg{width:18px; height:18px; transform:scaleX(-1);}
+  .back-btn.floating{position:absolute; top:14px; inset-inline-start:14px; z-index:5; background:rgba(255,253,248,.92);}
+
+  /* ---------------- Detail page ---------------- */
+  .detail{position:relative;}
+  .detail-hero{
+    margin:0 -16px; aspect-ratio:16/10; background:var(--surface-2); overflow:hidden;
+  }
+  .detail-hero img{width:100%; height:100%; object-fit:cover;}
+  @media(min-width:620px){ .detail-hero{margin:0; border-radius:var(--radius-lg); aspect-ratio:16/8;} }
+
+  .detail-body{padding-top:22px;}
+  .detail-body h1{font-size:25px; font-weight:900; margin:10px 0 8px; color:var(--primary-dark);}
+  .desc{font-size:15px; margin:0 0 6px;}
+  .sub-title{font-size:16px; font-weight:800; margin:22px 0 12px;}
+  .chip.small{
+    display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:999px;
+    background:var(--primary-tint); color:var(--primary-dark); font-size:12.5px; font-weight:700;
+  }
+  .chip.small svg{width:15px; height:15px;}
+  .feature-list{display:grid; gap:9px;}
+  .feature-list li{position:relative; padding-inline-start:22px; font-size:14px;}
+  .feature-list li::before{
+    content:""; position:absolute; inset-inline-start:0; top:8px;
+    width:8px; height:8px; background:var(--gold); border-radius:2px; transform:rotate(45deg);
+  }
+  .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .info-item{
+    display:flex; align-items:flex-start; gap:10px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); padding:12px;
+  }
+  .info-item svg{width:19px; height:19px; color:var(--primary); flex:none; margin-top:2px;}
+  .info-item b{display:block; font-size:12px; color:var(--muted); font-weight:700; margin-bottom:2px;}
+  .info-item span{font-size:13.5px; font-weight:600;}
+
+  /* ---------------- Suggest form ---------------- */
+  .suggest-form{display:grid; gap:26px;}
+  .q-block legend{font-size:15px; font-weight:800; margin-bottom:12px;}
+  .option-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .option-pill{position:relative; cursor:pointer;}
+  .option-pill input{position:absolute; opacity:0; inset:0; margin:0; cursor:pointer;}
+  .option-pill span{
+    display:inline-flex; padding:11px 18px; border-radius:999px;
+    border:1.5px solid var(--line); background:var(--surface);
+    font-size:13.5px; font-weight:700; color:var(--ink);
+    transition:all .15s ease;
+  }
+  .option-pill input:checked + span{background:var(--primary); border-color:var(--primary); color:#fff;}
+  .option-pill input:focus-visible + span{outline:3px solid var(--gold); outline-offset:2px;}
+
+  /* ---------------- State screens ---------------- */
+  .state-screen{
+    min-height:48vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:10px; padding:40px 20px;
+  }
+  .state-screen h2{margin:6px 0 0; font-size:18px; font-weight:800;}
+  .state-screen p{margin:0; color:var(--muted); font-size:14px; max-width:320px;}
+  .state-screen .btn{margin-top:12px;}
+  .state-icon{
+    width:56px; height:56px; border-radius:16px; background:var(--primary-tint); color:var(--primary-dark);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .state-icon svg{width:26px; height:26px;}
+  .state-icon.warn{background:#F7E3DD; color:var(--brick);}
+  .spinner{
+    width:34px; height:34px; border-radius:50%;
+    border:3.5px solid var(--primary-tint); border-top-color:var(--primary);
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .img-fallback{object-fit:contain !important; padding:20px; background:var(--surface-2);}
+
+  /* ---------------- Footer ---------------- */
+  footer.site-footer{
+    border-top:1px solid var(--line); margin-top:20px; padding:30px 18px 40px;
+    background:var(--surface);
+  }
+  .footer-inner{max-width:var(--max-w); margin:0 auto; display:grid; gap:16px; text-align:center;}
+  .footer-inner h4{margin:0; font-size:15px; font-weight:800; color:var(--primary-dark);}
+  .footer-inner p{margin:0; color:var(--muted); font-size:13px;}
+  .footer-links{display:flex; justify-content:center; gap:20px; flex-wrap:wrap;}
+  .footer-links a{font-size:13px; font-weight:700; color:var(--ink);}
+  .footer-links a:hover{color:var(--primary-dark);}
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21 C12 21 19 14.5 19 9.5 C19 5.36 15.64 2 11.5 2 C7.36 2 4 5.36 4 9.5 C4 14.5 12 21 12 21 Z" stroke="currentColor" stroke-width="1.8"/><circle cx="11.5" cy="9.5" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+      راهنمای سفر
+    </a>
+    <nav class="nav-desktop">
+      <a href="#/">خانه</a>
+      <a href="#/categories">دسته‌بندی‌ها</a>
+      <a class="cta" href="#/suggest">پیشنهاد برای من</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 7 H20 M4 12 H20 M4 17 H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#/">خانه</a></li>
+      <li><a href="#/categories">دسته‌بندی‌ها</a></li>
+      <li><a href="#/suggest">پیشنهاد برای من</a></li>
+    </ul>
+  </nav>
+
+  <main id="app"></main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <h4>راهنمای سفر</h4>
+      <p>پیدا کردن سریع‌تر مکان‌های دیدنی، بدون جست‌وجوی زمان‌بر.</p>
+      <div class="footer-links">
+        <a href="#/">صفحه اصلی</a>
+        <a href="#/categories">دسته‌بندی‌ها</a>
+        <a href="#/suggest">پیشنهاد برای من</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+/* =========================================================
+   راهنمای سفر — منطق اصلی سایت
+   SPA ساده با hash routing، بدون فریم‌ورک
+   ========================================================= */
+
+const EMBEDDED_DATA = {
+  "categories": [
+    {
+      "id": "nature",
+      "name": "طبیعت",
+      "adjective": "طبیعی",
+      "icon": "mountain",
+      "image": "https://picsum.photos/seed/cat-nature/700/500"
+    },
+    {
+      "id": "historical",
+      "name": "تاریخی",
+      "adjective": "تاریخی",
+      "icon": "arch",
+      "image": "https://picsum.photos/seed/cat-historical/700/500"
+    },
+    {
+      "id": "cultural",
+      "name": "فرهنگی",
+      "adjective": "فرهنگی",
+      "icon": "tile",
+      "image": "https://picsum.photos/seed/cat-cultural/700/500"
+    },
+    {
+      "id": "fun",
+      "name": "تفریحی",
+      "adjective": "تفریحی",
+      "icon": "wheel",
+      "image": "https://picsum.photos/seed/cat-fun/700/500"
+    },
+    {
+      "id": "family",
+      "name": "خانوادگی",
+      "adjective": "خانوادگی",
+      "icon": "family",
+      "image": "https://picsum.photos/seed/cat-family/700/500"
+    }
+  ],
+  "places": [
+    {
+      "id": "damavand",
+      "name": "قله دماوند",
+      "category": "nature",
+      "image": "https://picsum.photos/seed/damavand1/900/650",
+      "description": "دماوند آتشفشانی خاموش و بلندترین نقطه ایران و خاورمیانه است. دامنه‌های آن در همه فصل‌ها مقصد کوهنوردان، عکاسان طبیعت و کسانی‌ست که دنبال آرامش دور از شهر می‌گردند.",
+      "features": [
+        "چشم‌انداز برفی در بیشتر فصل‌ها",
+        "مسیرهای کوهنوردی با سطوح مختلف",
+        "مناسب عکاسی",
+        "مناسب سفر چندروزه"
+      ],
+      "suitableFor": [
+        "adventure",
+        "friends"
+      ],
+      "duration": "multiday",
+      "durationLabel": "۱ تا ۳ روز",
+      "info": {
+        "location": "استان مازندران",
+        "bestTime": "تیر تا شهریور",
+        "entryFee": "رایگان (هزینه اسکان و راهنما جدا)"
+      }
+    },
+    {
+      "id": "abr-forest",
+      "name": "جنگل ابر شاهرود",
+      "category": "nature",
+      "image": "https://picsum.photos/seed/abrforest1/900/650",
+      "description": "جنگل ابر یکی از خوش‌آب‌وهواترین مناطق ایران است که نامش را از پوشیده‌شدن مداومش زیر لایه‌ای از ابر و مه گرفته. مسیرهای پیاده‌روی کوتاه و چشم‌اندازهای سبز آن برای یک روز آرام عالی‌ست.",
+      "features": [
+        "مه صبحگاهی و هوای خنک",
+        "مسیرهای پیاده‌روی کوتاه",
+        "امکان کمپ و بوم‌گردی",
+        "مناسب عکاسی طبیعت"
+      ],
+      "suitableFor": [
+        "relax",
+        "family",
+        "friends"
+      ],
+      "duration": "day",
+      "durationLabel": "نیم روز تا ۱ روز",
+      "info": {
+        "location": "استان سمنان، شاهرود",
+        "bestTime": "اردیبهشت تا شهریور",
+        "entryFee": "کم‌هزینه"
+      }
+    },
+    {
+      "id": "urmia-lake",
+      "name": "دریاچه ارومیه",
+      "category": "nature",
+      "image": "https://picsum.photos/seed/urmia1/900/650",
+      "description": "دریاچه ارومیه با آب صورتی‌رنگ در فصل‌های خاص و افق بی‌پایانش یکی از خاص‌ترین چشم‌اندازهای طبیعی ایران است. جزایر پراکنده در آن زیستگاه پرندگان مهاجرند.",
+      "features": [
+        "غروب آفتاب دیدنی",
+        "امکان شنای سبک به دلیل شوری بالا",
+        "دیدن پرندگان مهاجر",
+        "مناسب عکاسی"
+      ],
+      "suitableFor": [
+        "relax",
+        "family",
+        "friends"
+      ],
+      "duration": "day",
+      "durationLabel": "نیم روز",
+      "info": {
+        "location": "استان آذربایجان غربی",
+        "bestTime": "بهار و پاییز",
+        "entryFee": "رایگان"
+      }
+    },
+    {
+      "id": "badab-e-surt",
+      "name": "آبگرم پلکانی باداب سورت",
+      "category": "nature",
+      "image": "https://picsum.photos/seed/badab1/900/650",
+      "description": "باداب سورت مجموعه‌ای از چشمه‌های آب معدنی است که در طول هزاران سال تراس‌های پلکانی رنگارنگی ساخته‌اند؛ یکی از کمیاب‌ترین پدیده‌های طبیعی جهان.",
+      "features": [
+        "تراس‌های رنگی منحصربه‌فرد",
+        "مسیر پیاده‌روی کوتاه",
+        "مناسب عکاسی حرفه‌ای",
+        "طبیعت اطراف سرسبز"
+      ],
+      "suitableFor": [
+        "adventure",
+        "friends",
+        "family"
+      ],
+      "duration": "hours",
+      "durationLabel": "چند ساعت",
+      "info": {
+        "location": "استان مازندران، ساری",
+        "bestTime": "اردیبهشت تا مهر",
+        "entryFee": "کم‌هزینه"
+      }
+    },
+    {
+      "id": "maranjab",
+      "name": "کویر مرنجاب",
+      "category": "nature",
+      "image": "https://picsum.photos/seed/maranjab1/900/650",
+      "description": "کویر مرنجاب با تپه‌های شنی روان، دریاچه نمک و آسمان پرستاره‌اش مقصدی محبوب برای ماجراجویی و آرامش دور از شلوغی شهر است.",
+      "features": [
+        "اقامت در کاروانسرای تاریخی",
+        "تماشای آسمان پرستاره",
+        "سافاری با شاسی‌بلند",
+        "دریاچه نمک"
+      ],
+      "suitableFor": [
+        "adventure",
+        "friends"
+      ],
+      "duration": "multiday",
+      "durationLabel": "۱ تا ۲ روز",
+      "info": {
+        "location": "استان اصفهان، آران و بیدگل",
+        "bestTime": "پاییز و زمستان",
+        "entryFee": "متوسط"
+      }
+    },
+    {
+      "id": "masuleh",
+      "name": "روستای ماسوله",
+      "category": "nature",
+      "image": "https://picsum.photos/seed/masuleh1/900/650",
+      "description": "ماسوله روستایی است که خانه‌هایش روی هم و پلکانی ساخته شده‌اند. معماری خاص و طبیعت مه‌آلود اطراف آن را به یکی از دیدنی‌ترین روستاهای ایران تبدیل کرده.",
+      "features": [
+        "معماری پلکانی منحصربه‌فرد",
+        "بازارچه صنایع‌دستی",
+        "طبیعت جنگلی اطراف",
+        "مناسب پیاده‌روی آرام"
+      ],
+      "suitableFor": [
+        "relax",
+        "family",
+        "friends"
+      ],
+      "duration": "day",
+      "durationLabel": "نیم روز تا ۱ روز",
+      "info": {
+        "location": "استان گیلان، فومن",
+        "bestTime": "بهار و تابستان",
+        "entryFee": "رایگان"
+      }
+    },
+    {
+      "id": "persepolis",
+      "name": "تخت جمشید",
+      "category": "historical",
+      "image": "https://picsum.photos/seed/persepolis1/900/650",
+      "description": "تخت جمشید یکی از باشکوه‌ترین آثار باستانی جهان و ثبت‌شده در میراث جهانی یونسکو است. ستون‌ها و نقش‌برجسته‌های آن روایتگر تاریخ امپراتوری هخامنشی‌اند.",
+      "features": [
+        "ثبت جهانی یونسکو",
+        "نقش‌برجسته‌های تاریخی",
+        "راهنمای گردشگری در محل",
+        "موزه کوچک در محوطه"
+      ],
+      "suitableFor": [
+        "family",
+        "friends",
+        "relax"
+      ],
+      "duration": "hours",
+      "durationLabel": "۲ تا ۳ ساعت",
+      "info": {
+        "location": "استان فارس، مرودشت",
+        "bestTime": "پاییز تا بهار",
+        "entryFee": "کم‌هزینه"
+      }
+    },
+    {
+      "id": "naghshe-jahan",
+      "name": "میدان نقش جهان اصفهان",
+      "category": "historical",
+      "image": "https://picsum.photos/seed/naghshejahan1/900/650",
+      "description": "میدان نقش جهان با مسجد شاه، مسجد شیخ‌لطف‌الله، کاخ عالی‌قاپو و بازار قیصریه، قلب تاریخی اصفهان و یکی از شاهکارهای معماری ایرانی است.",
+      "features": [
+        "مسجد شاه و مسجد شیخ‌لطف‌الله",
+        "کاخ عالی‌قاپو",
+        "بازار سنتی قیصریه",
+        "کالسکه‌سواری در میدان"
+      ],
+      "suitableFor": [
+        "family",
+        "friends",
+        "relax"
+      ],
+      "duration": "day",
+      "durationLabel": "نیم روز",
+      "info": {
+        "location": "استان اصفهان",
+        "bestTime": "تمام سال، ترجیحاً عصر",
+        "entryFee": "کم‌هزینه تا متوسط"
+      }
+    },
+    {
+      "id": "karim-khan-citadel",
+      "name": "ارگ کریم‌خانی شیراز",
+      "category": "historical",
+      "image": "https://picsum.photos/seed/karimkhan1/900/650",
+      "description": "ارگ کریم‌خان با برج‌های آجری و حیاط مرکزی‌اش، یادگار دوران زندیه و نماد معماری نظامی-مسکونی آن دوران است.",
+      "features": [
+        "برج‌های آجری تاریخی",
+        "حیاط مرکزی با باغچه",
+        "نمایشگاه اشیای دوران زندیه",
+        "نزدیک به بازار وکیل"
+      ],
+      "suitableFor": [
+        "family",
+        "friends",
+        "relax"
+      ],
+      "duration": "hours",
+      "durationLabel": "۱ تا ۲ ساعت",
+      "info": {
+        "location": "استان فارس، شیراز",
+        "bestTime": "تمام سال",
+        "entryFee": "کم‌هزینه"
+      }
+    },
+    {
+      "id": "khaju-bridge",
+      "name": "پل خواجو اصفهان",
+      "category": "historical",
+      "image": "https://picsum.photos/seed/khaju1/900/650",
+      "description": "پل خواجو با طاق‌های زیبا و پلکان‌های سنگی هم پل است و هم بند آب. عصرها مردم محلی برای گشت‌وگذار و تماشای غروب در طاق‌های آن جمع می‌شوند.",
+      "features": [
+        "معماری صفوی با طاق‌های تزیینی",
+        "چشم‌انداز زاینده‌رود",
+        "موسیقی محلی در شب",
+        "مناسب پیاده‌روی عصرگاهی"
+      ],
+      "suitableFor": [
+        "relax",
+        "friends",
+        "family"
+      ],
+      "duration": "hours",
+      "durationLabel": "۱ تا ۲ ساعت",
+      "info": {
+        "location": "استان اصفهان",
+        "bestTime": "عصر تا شب",
+        "entryFee": "رایگان"
+      }
+    },
+    {
+      "id": "fin-garden",
+      "name": "باغ فین کاشان",
+      "category": "cultural",
+      "image": "https://picsum.photos/seed/fingarden1/900/650",
+      "description": "باغ فین نمونه‌ای کامل از باغ‌سازی ایرانی است؛ با آب‌نماهای متعدد، درختان سرو کهن‌سال و کوشک‌های تاریخی.",
+      "features": [
+        "آب‌نماهای سنتی ایرانی",
+        "درختان سرو چند صدساله",
+        "حمام تاریخی فین",
+        "ثبت میراث جهانی یونسکو"
+      ],
+      "suitableFor": [
+        "relax",
+        "family"
+      ],
+      "duration": "hours",
+      "durationLabel": "۱ تا ۲ ساعت",
+      "info": {
+        "location": "استان اصفهان، کاشان",
+        "bestTime": "بهار و پاییز",
+        "entryFee": "کم‌هزینه"
+      }
+    },
+    {
+      "id": "vakil-bazaar",
+      "name": "بازار وکیل شیراز",
+      "category": "cultural",
+      "image": "https://picsum.photos/seed/vakilbazaar1/900/650",
+      "description": "بازار وکیل با سقف‌های آجری قوسی و راهروهای طولانی، یکی از زیباترین بازارهای سنتی ایران است؛ محلی عالی برای خرید فرش، صنایع‌دستی، ادویه و چای.",
+      "features": [
+        "معماری سقف قوسی زیبا",
+        "غرفه‌های صنایع‌دستی و فرش",
+        "قهوه‌خانه‌های سنتی",
+        "نزدیک به ارگ کریم‌خان"
+      ],
+      "suitableFor": [
+        "family",
+        "friends",
+        "relax"
+      ],
+      "duration": "hours",
+      "durationLabel": "۱ تا ۲ ساعت",
+      "info": {
+        "location": "استان فارس، شیراز",
+        "bestTime": "تمام سال",
+        "entryFee": "رایگان"
+      }
+    },
+    {
+      "id": "shams-ol-emareh",
+      "name": "عمارت شمس‌العماره",
+      "category": "cultural",
+      "image": "https://picsum.photos/seed/shamsolemareh1/900/650",
+      "description": "شمس‌العماره با نمای کاشی‌کاری‌شده و برج‌های قرینه‌اش، یکی از نمادهای شناخته‌شده معماری دوران قاجار در مجموعه کاخ گلستان تهران است.",
+      "features": [
+        "کاشی‌کاری رنگارنگ قاجاری",
+        "بخشی از مجموعه کاخ گلستان",
+        "چشم‌انداز از طبقات بالا",
+        "مناسب عکاسی معماری"
+      ],
+      "suitableFor": [
+        "family",
+        "relax"
+      ],
+      "duration": "hours",
+      "durationLabel": "۱ ساعت",
+      "info": {
+        "location": "تهران، میدان ارگ",
+        "bestTime": "تمام سال",
+        "entryFee": "کم‌هزینه"
+      }
+    },
+    {
+      "id": "milad-tower",
+      "name": "برج میلاد تهران",
+      "category": "fun",
+      "image": "https://picsum.photos/seed/miladtower1/900/650",
+      "description": "برج میلاد با طبقه مشاهده و رستوران گردان خود، یکی از محبوب‌ترین مقصدهای تفریحی تهران است؛ به‌خصوص در ساعات غروب.",
+      "features": [
+        "طبقه مشاهده با چشم‌انداز کامل شهر",
+        "رستوران و کافه",
+        "مناسب عکاسی شبانه",
+        "نمایشگاه‌های موقت"
+      ],
+      "suitableFor": [
+        "family",
+        "friends"
+      ],
+      "duration": "hours",
+      "durationLabel": "۲ تا ۳ ساعت",
+      "info": {
+        "location": "تهران",
+        "bestTime": "غروب تا شب",
+        "entryFee": "متوسط"
+      }
+    },
+    {
+      "id": "eco-park",
+      "name": "اکوپارک و شهربازی ارم",
+      "category": "fun",
+      "image": "https://picsum.photos/seed/ecopark1/900/650",
+      "description": "یک شهربازی و اکوپارک بزرگ با انواع وسایل هیجانی و آرام، فضای سبز گسترده و امکانات رفاهی، مناسب برای یک روز پر از هیجان با دوستان یا خانواده.",
+      "features": [
+        "وسایل بازی متنوع برای همه سنین",
+        "فضای سبز و پیاده‌روی",
+        "غرفه‌های غذا و کافه",
+        "برنامه‌های ویژه شب"
+      ],
+      "suitableFor": [
+        "family",
+        "friends",
+        "adventure"
+      ],
+      "duration": "day",
+      "durationLabel": "نیم روز تا ۱ روز",
+      "info": {
+        "location": "تهران",
+        "bestTime": "بهار تا پاییز",
+        "entryFee": "متوسط"
+      }
+    },
+    {
+      "id": "kish-beach",
+      "name": "ساحل مرجانی کیش",
+      "category": "fun",
+      "image": "https://picsum.photos/seed/kishbeach1/900/650",
+      "description": "جزیره کیش با ساحل‌های شنی، آب‌های گرم خلیج فارس و مراکز خرید و تفریحی متعدد، مقصدی محبوب برای گذراندن تعطیلات و استراحت کنار دریاست.",
+      "features": [
+        "شنا و ورزش‌های آبی",
+        "مراکز خرید نزدیک ساحل",
+        "غروب زیبای دریا",
+        "مناسب اقامت چندروزه"
+      ],
+      "suitableFor": [
+        "family",
+        "friends",
+        "relax"
+      ],
+      "duration": "multiday",
+      "durationLabel": "۲ تا ۴ روز",
+      "info": {
+        "location": "جزیره کیش",
+        "bestTime": "پاییز تا بهار",
+        "entryFee": "رایگان (هزینه سفر و اقامت جدا)"
+      }
+    },
+    {
+      "id": "mellat-park",
+      "name": "پارک ملت تهران",
+      "category": "family",
+      "image": "https://picsum.photos/seed/mellatpark1/900/650",
+      "description": "پارک ملت با مسیرهای دوچرخه‌سواری، دریاچه مصنوعی، زمین بازی کودکان و فضای سبز گسترده، مقصدی آرام و مناسب برای گذراندن وقت با خانواده در دل تهران است.",
+      "features": [
+        "زمین بازی مخصوص کودکان",
+        "مسیر دوچرخه‌سواری و پیاده‌روی",
+        "دریاچه مصنوعی",
+        "کافه و رستوران‌های اطراف"
+      ],
+      "suitableFor": [
+        "family",
+        "relax"
+      ],
+      "duration": "hours",
+      "durationLabel": "چند ساعت",
+      "info": {
+        "location": "تهران",
+        "bestTime": "بهار تا پاییز",
+        "entryFee": "رایگان"
+      }
+    },
+    {
+      "id": "isfahan-bird-garden",
+      "name": "باغ پرندگان اصفهان",
+      "category": "family",
+      "image": "https://picsum.photos/seed/birdgarden1/900/650",
+      "description": "این باغ گنبدی بزرگ با صدها گونه پرنده از سراسر جهان، تجربه‌ای دیدنی و آموزنده برای کودکان و خانواده‌ها فراهم می‌کند.",
+      "features": [
+        "صدها گونه پرنده در فضای سرپوشیده",
+        "مسیرهای پیاده‌روی داخل گنبد",
+        "مناسب آموزش کودکان",
+        "کافه و فروشگاه سوغاتی"
+      ],
+      "suitableFor": [
+        "family"
+      ],
+      "duration": "hours",
+      "durationLabel": "۲ تا ۳ ساعت",
+      "info": {
+        "location": "استان اصفهان",
+        "bestTime": "تمام سال",
+        "entryFee": "متوسط"
+      }
+    },
+    {
+      "id": "tehran-zoo",
+      "name": "باغ‌وحش ارم تهران",
+      "category": "family",
+      "image": "https://picsum.photos/seed/tehranzoo1/900/650",
+      "description": "باغ‌وحش ارم با فضای سبز وسیع و قفس‌های بزرگ برای حیوانات، یکی از بهترین مقصدهای تفریحی-آموزشی برای خانواده‌هایی است که فرزندان کوچک دارند.",
+      "features": [
+        "گونه‌های متنوع حیوانات وحشی و اهلی",
+        "مسیرهای پیاده‌روی سایه‌دار",
+        "زمین بازی کودکان",
+        "امکانات رفاهی مناسب"
+      ],
+      "suitableFor": [
+        "family"
+      ],
+      "duration": "day",
+      "durationLabel": "نیم روز",
+      "info": {
+        "location": "تهران",
+        "bestTime": "بهار تا پاییز",
+        "entryFee": "کم‌هزینه"
+      }
+    }
+  ]
+};
+
+const state = {
+  categories: [],
+  places: [],
+  loaded: false,
+  answers: {}, // پاسخ‌های فرم «پیشنهاد برای من» (در حافظه، بین ناوبری‌ها حفظ می‌شود)
+};
+
+const FALLBACK_IMG =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' width='900' height='650'>
+       <rect width='100%' height='100%' fill='#EFE6D2'/>
+       <text x='50%' y='50%' font-family='sans-serif' font-size='26' fill='#A99B7E'
+         text-anchor='middle' dominant-baseline='middle'>تصویر در دسترس نیست</text>
+     </svg>`
+  );
+
+/* ---------------------------- آیکن‌ها ---------------------------- */
+const ICONS = {
+  mountain: `<svg viewBox="0 0 48 48" fill="none"><path d="M4 38 L18 14 L25 25 L30 17 L44 38 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="34" cy="10" r="3.5" stroke="currentColor" stroke-width="2.5"/></svg>`,
+  arch: `<svg viewBox="0 0 48 48" fill="none"><path d="M8 40 V22 A16 16 0 0 1 40 22 V40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M4 40 H44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M14 40 V26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M34 40 V26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+  tile: `<svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M24 6 L42 24 L24 42 L6 24 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>`,
+  wheel: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="24" r="3" fill="currentColor"/><path d="M24 8 V16 M24 32 V40 M8 24 H16 M32 24 H40 M13 13 L18 18 M30 30 L35 35 M35 13 L30 18 M18 30 L13 35" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+  family: `<svg viewBox="0 0 48 48" fill="none"><circle cx="16" cy="14" r="5" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="14" r="5" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="26" r="4" stroke="currentColor" stroke-width="2.5"/><path d="M6 40 C6 30 10 26 16 26 C22 26 26 30 26 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M22 40 C22 32 26 28 32 28 C38 28 42 32 42 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+  search: `<svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20 L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  sparkle: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L14 10 L21 12 L14 14 L12 21 L10 14 L3 12 L10 10 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  pin: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 21 C12 21 19 14.5 19 9.5 C19 5.36 15.64 2 11.5 2 C7.36 2 4 5.36 4 9.5 C4 14.5 12 21 12 21 Z" stroke="currentColor" stroke-width="1.8"/><circle cx="11.5" cy="9.5" r="3" stroke="currentColor" stroke-width="1.8"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7 V12 L16 14.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+  compass: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5 L13 13 L8.5 15.5 L11 11 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  back: `<svg viewBox="0 0 24 24" fill="none"><path d="M15 5 L8 12 L15 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  refresh: `<svg viewBox="0 0 24 24" fill="none"><path d="M4 12 A8 8 0 0 1 18.5 7 M20 12 A8 8 0 0 1 5.5 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 4 V7.5 H14.5 M6 20 V16.5 H9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  menu: `<svg viewBox="0 0 24 24" fill="none"><path d="M4 7 H20 M4 12 H20 M4 17 H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  close: `<svg viewBox="0 0 24 24" fill="none"><path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+};
+
+const TRIP_TYPE_LABELS = { family: "خانوادگی", friends: "دوستانه", relax: "آرام و استراحت", adventure: "ماجراجویی" };
+const DURATION_LABELS = { hours: "چند ساعت", day: "یک روز", multiday: "چند روز" };
+
+/* ---------------------------- بارگذاری داده ---------------------------- */
+function loadData() {
+  // نسخه نمو: داده‌ها به‌صورت محلی در همین فایل embed شده‌اند تا سایت
+  // بدون نیاز به سرور (حتی با دابل‌کلیک روی index.html) اجرا شود.
+  // برای اتصال به دیتابیس واقعی در آینده، همین تابع را با یک fetch به API واقعی جایگزین کنید.
+  const root = document.getElementById("app");
+  root.innerHTML = loadingView();
+  try {
+    const data = EMBEDDED_DATA;
+    if (!data || !data.categories || !data.places) throw new Error("no data");
+    state.categories = data.categories;
+    state.places = data.places;
+    state.loaded = true;
+    router();
+  } catch (err) {
+    root.innerHTML = errorView("loadData()");
+  }
+}
+
+function loadingView() {
+  return `
+    <div class="state-screen">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>در حال بارگذاری مکان‌ها…</p>
+    </div>`;
+}
+
+function errorView(retryFn) {
+  return `
+    <div class="state-screen">
+      <div class="state-icon warn">${ICONS.refresh}</div>
+      <h2>دریافت اطلاعات با مشکل مواجه شد.</h2>
+      <p>دوباره تلاش کنید.</p>
+      <button class="btn btn-primary" onclick="${retryFn}">تلاش دوباره</button>
+    </div>`;
+}
+
+function emptyView(message, actionLabel, actionFn) {
+  return `
+    <div class="state-screen">
+      <div class="state-icon">${ICONS.search}</div>
+      <h2>${message}</h2>
+      ${actionLabel ? `<button class="btn btn-primary" onclick="${actionFn}">${actionLabel}</button>` : ""}
+    </div>`;
+}
+
+/* ---------------------------- روتر ---------------------------- */
+window.addEventListener("hashchange", () => {
+  closeMobileMenu();
+  router();
+});
+window.addEventListener("DOMContentLoaded", () => {
+  loadData();
+  document.getElementById("menuToggle").addEventListener("click", toggleMobileMenu);
+});
+
+function toggleMobileMenu() {
+  document.getElementById("mobileNav").classList.toggle("open");
+  const btn = document.getElementById("menuToggle");
+  const isOpen = document.getElementById("mobileNav").classList.contains("open");
+  btn.innerHTML = isOpen ? ICONS.close : ICONS.menu;
+}
+function closeMobileMenu() {
+  document.getElementById("mobileNav").classList.remove("open");
+  document.getElementById("menuToggle").innerHTML = ICONS.menu;
+}
+
+function parseHash() {
+  const hash = location.hash.replace(/^#\/?/, "");
+  return hash.split("/").filter(Boolean);
+}
+
+function router() {
+  if (!state.loaded) return;
+  const parts = parseHash();
+  const root = document.getElementById("app");
+  window.scrollTo(0, 0);
+
+  if (parts.length === 0) {
+    root.innerHTML = renderHome();
+  } else if (parts[0] === "categories") {
+    root.innerHTML = renderCategoryList();
+  } else if (parts[0] === "category" && parts[1]) {
+    root.innerHTML = renderPlacesByCategory(parts[1]);
+  } else if (parts[0] === "suggest" && parts[1] === "results") {
+    root.innerHTML = renderSuggestResults();
+  } else if (parts[0] === "suggest") {
+    root.innerHTML = renderSuggestForm();
+  } else if (parts[0] === "place" && parts[1]) {
+    root.innerHTML = renderPlaceDetails(parts[1]);
+  } else {
+    root.innerHTML = emptyView("این صفحه پیدا نشد.", "بازگشت به صفحه اصلی", "location.hash='#/'");
+  }
+  attachImgFallback(root);
+  attachSearchHandler(root);
+}
+
+function attachImgFallback(root) {
+  root.querySelectorAll("img[data-src]").forEach((img) => {
+    img.src = img.getAttribute("data-src");
+    img.onerror = () => {
+      img.onerror = null;
+      img.src = FALLBACK_IMG;
+      img.classList.add("img-fallback");
+    };
+  });
+}
+
+function attachSearchHandler(root) {
+  const input = root.querySelector("#searchInput");
+  if (!input) return;
+  input.addEventListener("input", () => {
+    const term = input.value.trim().toLowerCase();
+    const grid = root.querySelector("#searchResultGrid");
+    const catId = input.dataset.category;
+    const all = placesInCategory(catId);
+    const filtered = term ? all.filter((p) => p.name.toLowerCase().includes(term)) : all;
+    grid.innerHTML = filtered.length
+      ? filtered.map((p) => placeCard(p)).join("")
+      : `<div class="inline-empty">مکانی با این مشخصات پیدا نشد.</div>`;
+    attachImgFallback(grid);
+  });
+}
+
+/* ---------------------------- کمکی‌ها ---------------------------- */
+function getCategory(id) {
+  return state.categories.find((c) => c.id === id);
+}
+function getPlace(id) {
+  return state.places.find((p) => p.id === id);
+}
+function placesInCategory(id) {
+  return state.places.filter((p) => p.category === id);
+}
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function placeCard(place) {
+  const cat = getCategory(place.category);
+  return `
+    <a class="card" href="#/place/${place.id}" aria-label="${place.name}">
+      <div class="card-media">
+        <img data-src="${place.image}" alt="${place.name}" loading="lazy" />
+        <span class="card-tag">${ICONS[cat?.icon] || ""}<b>${cat?.name || ""}</b></span>
+      </div>
+      <div class="card-body">
+        <h3>${place.name}</h3>
+        <p>${place.description}</p>
+        <span class="btn btn-outline btn-sm">مشاهده جزئیات</span>
+      </div>
+    </a>`;
+}
+
+/* ---------------------------- صفحه اصلی ---------------------------- */
+function renderHome() {
+  const highlights = shuffle(state.places).slice(0, 6);
+  return `
+    <section class="hero">
+      <img class="hero-bg" data-src="https://picsum.photos/seed/travelhero/1600/900" alt="مکان گردشگری" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>مکان مناسب برای سفر بعدی‌ات را پیدا کن</h1>
+        <p>مکان‌های دیدنی را سریع پیدا کن، اطلاعاتشان را ببین و بهترین گزینه را برای سفر انتخاب کن.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#/categories">${ICONS.compass}کشف مکان‌ها</a>
+          <a class="btn btn-outline-light btn-lg" href="#/suggest">${ICONS.sparkle}پیشنهاد برای من</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">چه نوع مکانی دوست داری؟</h2>
+      <div class="cat-grid">
+        ${state.categories
+          .map(
+            (c) => `
+          <a class="cat-card" href="#/category/${c.id}">
+            <div class="cat-card-media">
+              <img data-src="${c.image}" alt="${c.name}" loading="lazy" />
+              <span class="cat-card-icon">${ICONS[c.icon] || ""}</span>
+            </div>
+            <div class="cat-card-body">
+              <h3>${c.name}</h3>
+              <span class="link">مشاهده مکان‌ها ←</span>
+            </div>
+          </a>`
+          )
+          .join("")}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">مکان‌های پیشنهادی</h2>
+      <div class="grid">
+        ${highlights.map((p) => placeCard(p)).join("")}
+      </div>
+    </section>
+  `;
+}
+
+/* ---------------------------- فهرست دسته‌بندی‌ها ---------------------------- */
+function renderCategoryList() {
+  return `
+    <section class="page-head">
+      <a class="back-btn" href="#/">${ICONS.back}</a>
+      <div><h1>دسته‌بندی‌ها</h1><p>یک دسته را انتخاب کن تا مکان‌های مرتبط را ببینی.</p></div>
+    </section>
+    <section class="section">
+      <div class="cat-grid">
+        ${state.categories
+          .map(
+            (c) => `
+          <a class="cat-card" href="#/category/${c.id}">
+            <div class="cat-card-media">
+              <img data-src="${c.image}" alt="${c.name}" loading="lazy" />
+              <span class="cat-card-icon">${ICONS[c.icon] || ""}</span>
+            </div>
+            <div class="cat-card-body">
+              <h3>${c.name}</h3>
+              <span class="link">مشاهده مکان‌ها ←</span>
+            </div>
+          </a>`
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+/* ---------------------------- مکان‌های یک دسته + جست‌وجو ---------------------------- */
+function renderPlacesByCategory(catId) {
+  const cat = getCategory(catId);
+  if (!cat) {
+    return emptyView("این دسته‌بندی پیدا نشد.", "بازگشت به دسته‌بندی‌ها", "location.hash='#/categories'");
+  }
+  const places = placesInCategory(catId);
+  return `
+    <section class="page-head">
+      <a class="back-btn" href="#/categories">${ICONS.back}</a>
+      <div><h1>مکان‌های ${cat.adjective}</h1><p>${places.length} مکان در این دسته‌بندی</p></div>
+    </section>
+    <section class="section">
+      <div class="search-box">
+        ${ICONS.search}
+        <input id="searchInput" data-category="${catId}" type="text" placeholder="جست‌وجوی نام مکان…" />
+      </div>
+      <div class="grid" id="searchResultGrid">
+        ${
+          places.length
+            ? places.map((p) => placeCard(p)).join("")
+            : `<div class="inline-empty">مکانی با این مشخصات پیدا نشد.</div>`
+        }
+      </div>
+    </section>
+  `;
+}
+
+/* ---------------------------- جزئیات مکان ---------------------------- */
+function renderPlaceDetails(id) {
+  const place = getPlace(id);
+  if (!place) {
+    return emptyView("این مکان پیدا نشد.", "بازگشت به صفحه اصلی", "location.hash='#/'");
+  }
+  const cat = getCategory(place.category);
+  return `
+    <section class="detail">
+      <a class="back-btn floating" href="javascript:history.back()">${ICONS.back}</a>
+      <div class="detail-hero">
+        <img data-src="${place.image}" alt="${place.name}" />
+      </div>
+      <div class="detail-body">
+        <span class="chip small">${ICONS[cat?.icon] || ""}${cat?.name || ""}</span>
+        <h1>${place.name}</h1>
+        <p class="desc">${place.description}</p>
+
+        <h2 class="sub-title">ویژگی‌های مکان</h2>
+        <ul class="feature-list">
+          ${place.features.map((f) => `<li>${f}</li>`).join("")}
+        </ul>
+
+        <h2 class="sub-title">اطلاعات تکمیلی</h2>
+        <div class="info-grid">
+          <div class="info-item">${ICONS.pin}<div><b>موقعیت</b><span>${place.info.location}</span></div></div>
+          <div class="info-item">${ICONS.clock}<div><b>بهترین زمان</b><span>${place.info.bestTime}</span></div></div>
+          <div class="info-item">${ICONS.compass}<div><b>مدت پیشنهادی</b><span>${place.durationLabel}</span></div></div>
+          <div class="info-item">${ICONS.sparkle}<div><b>هزینه ورود</b><span>${place.info.entryFee}</span></div></div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+/* ---------------------------- فرم «پیشنهاد برای من» ---------------------------- */
+// دسته‌بندی‌ها فقط پس از بارگذاری داده مشخص می‌شوند، پس سؤال‌ها در زمان اجرا ساخته می‌شوند.
+function buildQuestions() {
+  return [
+    {
+      key: "category",
+      label: "نوع مکان مورد علاقه",
+      options: [...state.categories.map((c) => ({ value: c.id, label: c.name })), { value: "any", label: "فرقی نداره" }],
+    },
+    {
+      key: "trip",
+      label: "نوع سفر",
+      options: [
+        { value: "family", label: "خانوادگی" },
+        { value: "friends", label: "دوستانه" },
+        { value: "relax", label: "آرام و استراحت" },
+        { value: "adventure", label: "ماجراجویی" },
+        { value: "any", label: "فرقی نداره" },
+      ],
+    },
+    {
+      key: "duration",
+      label: "میزان زمان سفر",
+      options: [
+        { value: "hours", label: "چند ساعت" },
+        { value: "day", label: "یک روز" },
+        { value: "multiday", label: "چند روز" },
+        { value: "any", label: "فرقی نداره" },
+      ],
+    },
+  ];
+}
+
+function renderSuggestForm() {
+  const questions = buildQuestions();
+  return `
+    <section class="page-head">
+      <a class="back-btn" href="#/">${ICONS.back}</a>
+      <div><h1>مکان مناسب برای من</h1><p>چند سؤال کوتاه پاسخ بده تا بهترین گزینه‌ها را پیشنهاد بدهیم.</p></div>
+    </section>
+    <form class="section suggest-form" id="suggestForm" onsubmit="return submitSuggest(event)">
+      ${questions
+        .map(
+          (q) => `
+        <fieldset class="q-block">
+          <legend>${q.label}</legend>
+          <div class="option-row">
+            ${q.options
+              .map(
+                (o) => `
+              <label class="option-pill">
+                <input type="radio" name="${q.key}" value="${o.value}" required />
+                <span>${o.label}</span>
+              </label>`
+              )
+              .join("")}
+          </div>
+        </fieldset>`
+        )
+        .join("")}
+      <button type="submit" class="btn btn-primary btn-lg btn-block">${ICONS.sparkle}پیشنهاد مکان</button>
+    </form>
+  `;
+}
+
+function submitSuggest(e) {
+  e.preventDefault();
+  const form = e.target;
+  const answers = {};
+  buildQuestions().forEach((q) => {
+    const checked = form.querySelector(`input[name="${q.key}"]:checked`);
+    answers[q.key] = checked ? checked.value : "any";
+  });
+  state.answers = answers;
+  location.hash = "#/suggest/results";
+  return false;
+}
+
+function scorePlace(place, answers) {
+  let score = 0;
+  if (answers.category && answers.category !== "any" && place.category === answers.category) score += 3;
+  if (answers.trip && answers.trip !== "any" && place.suitableFor.includes(answers.trip)) score += 3;
+  if (answers.duration && answers.duration !== "any" && place.duration === answers.duration) score += 2;
+  return score;
+}
+
+function reasonFor(place, answers) {
+  const cat = getCategory(place.category);
+  const parts = [];
+  if (answers.category && answers.category !== "any" && place.category === answers.category) {
+    parts.push(`علاقه شما به ${cat.name}`);
+  }
+  if (answers.trip && answers.trip !== "any" && place.suitableFor.includes(answers.trip)) {
+    parts.push(`سفر ${TRIP_TYPE_LABELS[answers.trip]}`);
+  }
+  if (answers.duration && answers.duration !== "any" && place.duration === answers.duration) {
+    parts.push(`زمان در دسترس شما (${DURATION_LABELS[answers.duration]})`);
+  }
+  if (parts.length === 0) {
+    return "این مکان یکی از مکان‌های محبوب و مناسب برای سفر است.";
+  }
+  return `این مکان برای شما مناسب است چون با ${parts.join(" و ")} مطابقت دارد.`;
+}
+
+function suggestedCard(place, answers) {
+  const cat = getCategory(place.category);
+  return `
+    <a class="card suggest-card" href="#/place/${place.id}" aria-label="${place.name}">
+      <div class="card-media">
+        <img data-src="${place.image}" alt="${place.name}" loading="lazy" />
+        <span class="card-tag">${ICONS[cat?.icon] || ""}<b>${cat?.name || ""}</b></span>
+      </div>
+      <div class="card-body">
+        <h3>${place.name}</h3>
+        <p class="reason">${reasonFor(place, answers)}</p>
+        <span class="btn btn-outline btn-sm">مشاهده جزئیات</span>
+      </div>
+    </a>`;
+}
+
+function renderSuggestResults() {
+  const answers = state.answers;
+  if (!answers || Object.keys(answers).length === 0) {
+    return emptyView("هنوز فرم پیشنهاد را پر نکرده‌ای.", "رفتن به فرم پیشنهاد", "location.hash='#/suggest'");
+  }
+
+  const scored = state.places
+    .map((p) => ({ place: p, score: scorePlace(p, answers) }))
+    .sort((a, b) => b.score - a.score);
+
+  const hasRealMatch = scored.some((x) => x.score > 0);
+  const results = hasRealMatch ? scored.filter((x) => x.score > 0).slice(0, 6) : [];
+
+  return `
+    <section class="page-head">
+      <a class="back-btn" href="#/suggest">${ICONS.back}</a>
+      <div><h1>پیشنهادهای مناسب برای شما</h1></div>
+    </section>
+    <section class="section">
+      ${
+        results.length
+          ? `<div class="grid">${results.map(({ place }) => suggestedCard(place, answers)).join("")}</div>`
+          : emptyView("مکانی مطابق انتخاب شما پیدا نشد.", "تغییر شرایط", "location.hash='#/suggest'")
+      }
+    </section>
+  `;
+}
+
+</script>
+</body>
+</html>
